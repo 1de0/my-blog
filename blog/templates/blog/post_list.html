@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Hello, World!</title>
+    </head>
+
+    <body>
+        {% for post in posts %}
+        <div>
+            <h1>제목: {{ post.title }}</h1>
+            <p>게시일: {{ post.published_date }}</p>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
