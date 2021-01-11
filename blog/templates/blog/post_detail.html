@@ -6,10 +6,11 @@
             <p class="date">{{ post.published_date }}</p>
         {% endif %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <p>{{ post.text|safe }}</p>
         <hr>
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> 수정하기</a>
         {% endif %}
+        <a href="{% url 'post_list' %}">목록으로</a>
     </div>
 {% endblock %}

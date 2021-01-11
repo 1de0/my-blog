@@ -3,9 +3,11 @@
 {% block content %}
     <div class="post-detail">
         <h1>새로운 게시물</h1>
+        {{ form.media }}
         <form method="post" class="post-form">{% csrf_token %}
-            {{ form.as_p }}
+            {{ form.as_p|safe }}
             <button type="submit">Save</button>
         </form>
+        
     </div>
 {% endblock %}
