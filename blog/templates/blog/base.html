@@ -1,21 +1,25 @@
 {% load static %}
 <html>
     <head>
-        <title>Hello, World!</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href ="{% static 'css/blog.css' %}">
+        <title>AUAU3</title>
+        <link rel="stylesheet" href ="{% static 'css/X6jbKKBvx.css' %}">
+        <script src="https://kit.fontawesome.com/1d9a00d329.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         
     </head>
 
     <body>
+        <header>
+            <h1><a class="title" href="{% url 'post_list' %}">AUAU3</a></h1>
         {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <a class="mod" href="{% url 'post_new' %}"><span><i style="line-height: normal;" class="fas fa-pen-square"></i> 글 작성하기</span></a>
         {% endif %}
+        </header>
         <div>
             {% block content %}
             {% endblock %}
         </div>
+
+        <footer>© 2021 auau3.com - All Rights Reserved.</footer>
     </body>
 </html>

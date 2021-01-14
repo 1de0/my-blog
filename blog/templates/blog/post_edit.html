@@ -2,11 +2,12 @@
 
 {% block content %}
     <div class="post-detail">
-        <h1>새로운 게시물</h1>
+        <h1>게시물 작성</h1>
         {{ form.media }}
         <form method="post" class="post-form">{% csrf_token %}
-            {{ form.as_p|safe }}
-            <button type="submit">Save</button>
+            <div id="form-header">{{ form.author }} {{ form.title }}</div>
+            {{ form.text|safe }}
+            <div id="form-footer"><button class="post-form-submit" type="submit"><i class="fas fa-pencil-alt"></i> 저장</button></div>
         </form>
         
     </div>

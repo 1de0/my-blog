@@ -4,7 +4,8 @@ from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    #author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.CharField(max_length=10, blank=False, null=False)
     title = models.CharField(max_length=200)
     text = RichTextUploadingField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)

@@ -3,14 +3,18 @@
 {% block content %}
     <div class="post-detail">
         {% if post.published_date %}
-            <p class="date">{{ post.published_date }}</p>
+            <p class="date">{{ post.published_date|date:"Y년 M d일 D a g:i" }}, {{ post.author }} 작성</p>
         {% endif %}
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|safe }}</p>
         <hr>
-        {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> 수정하기</a>
-        {% endif %}
-        <a href="{% url 'post_list' %}">목록으로</a>
+        <div class="post-detail-content">{{ post.text|safe }}</div>
+        <hr>
+        <div class="post-detail-footer">
+            {% if user.is_authenticated %}
+                <span><a href="{% url 'post_edit' pk=post.pk %}"><button><i class="fas fa-pencil-alt"></i> 수정하기</button></a></span>
+                <span><a href="{% url 'post_del' pk=post.pk %}"><button><i class="fas fa-trash-alt"></i> 삭제하기</button></a></span>
+            {% endif %}
+            <span><a href="{% url 'post_list' %}"><button><i class="fas fa-home"></i> 목록으로</button></a></span>
+        </div>
     </div>
 {% endblock %}
