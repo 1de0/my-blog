@@ -48,7 +48,7 @@ header a.mod {
     -webkit-user-select: none;
 }
 
-header a.mod:visited {
+header a.mod:link, a.mod:visited {
     color: black;
 }
 
